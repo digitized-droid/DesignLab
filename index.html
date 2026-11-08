@@ -1,0 +1,2095 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-width, initial-scale=1.0">
+<title>DesignLab|Learn Graphic Design</title>
+<style>
+:root {
+  --navy: #172b4d;
+  --blue: #3157a4;
+  --cream: #fffaf1;
+  --paper: #fff;
+  --coral: #f47766;
+  --teal: #55b9ad;
+  --yellow: #f6c957;
+  --ink: #25334a;
+  --muted: #68758a;
+  --line: #e6e8ed;
+  --shadow: 0 14px 38px #1b315015;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fffdf8ef;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  color: var(--navy);
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 900;
+  transform: rotate(-5deg);
+}
+
+.navlinks {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 750;
+  font-size: 0.92rem;
+  padding: 9px 12px;
+  border-radius: 10px;
+}
+
+.navlinks a:hover,
+.navlinks a.active {
+  background: #edf1fa;
+  color: var(--navy);
+}
+
+.progress-pill {
+  font-size: 0.8rem;
+  font-weight: 800;
+  background: #fff1c7;
+  color: #76520b;
+  padding: 8px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ========================================
+   4. MAIN CONTAINER
+======================================== */
+.container {
+  width: min(1120px, calc(100% - 36px));
+  margin: auto;
+}
+
+/* ========================================
+   5. HERO SECTION
+======================================== */
+.hero {
+  padding: 62px 0 42px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  background: #eaf0ff;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.9rem);
+  line-height: 0.99;
+  letter-spacing: -0.065em;
+  color: var(--navy);
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: var(--coral);
+}
+
+.hero p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.hero-art {
+  min-height: 340px;
+  position: relative;
+  background: #f5e8d4;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.art-paper {
+  position: absolute;
+  background: #fffdf9;
+  border-radius: 18px;
+  box-shadow: 0 12px 25px #4b3b2920;
+  transform: rotate(-8deg);
+  width: 64%;
+  height: 72%;
+  top: 13%;
+  left: 17%;
+  padding: 25px;
+}
+
+.art-paper:before {
+  content: "DESIGN\A IS A WAY\A OF THINKING";
+  white-space: pre;
+  display: block;
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  font-weight: 1000;
+  line-height: 1.05;
+  color: var(--navy);
+  letter-spacing: -0.06em;
+}
+
+.art-shape {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: var(--coral);
+  right: 11%;
+  top: 12%;
+  border: 9px solid #fffdf9;
+}
+
+.art-square {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--teal);
+  bottom: 13%;
+  left: 10%;
+  transform: rotate(18deg);
+  border: 8px solid #fffdf9;
+}
+
+.art-star {
+  position: absolute;
+  right: 12%;
+  bottom: 13%;
+  font-size: 4rem;
+  color: var(--yellow);
+  text-shadow: 2px 3px 0 var(--navy);
+}
+
+/* ========================================
+   6. SECTION HEADINGS AND LAYOUTS
+======================================== */
+.section {
+  padding: 48px 0;
+  scroll-margin-top: 90px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.section-head h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: -0.045em;
+  color: var(--navy);
+  margin: 8px 0 4px;
+}
+
+.section-head p {
+  color: var(--muted);
+  margin: 0;
+  max-width: 650px;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  color: var(--coral);
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ========================================
+   7. CARDS
+======================================== */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  color: var(--navy);
+  margin: 0 0 7px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.mini-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+  background: #fff0e8;
+}
+
+.tool-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.tool-card h3 {
+  margin: 0 0 6px;
+  color: var(--navy);
+}
+
+.tool-card .sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 17px;
+  font-weight: 850;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.primary {
+  background: var(--navy);
+  color: white;
+}
+
+.primary:hover {
+  background: #294574;
+}
+
+.secondary {
+  background: #eef1f7;
+  color: var(--navy);
+}
+
+.coral-btn {
+  background: var(--coral);
+  color: #fff;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tiny-btn {
+  border: 1px solid #d9deea;
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 11px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.tiny-btn:hover {
+  background: #eef2fa;
+}
+
+/* ========================================
+   9. FORM INPUTS
+======================================== */
+.label {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 850;
+  margin: 12px 0 6px;
+}
+
+.input,
+select {
+  width: 100%;
+  border: 1px solid #d9deea;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+}
+
+/* ========================================
+   10. COLOR THEORY - COLOR WHEEL
+======================================== */
+.wheel-wrap {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.85fr) 1fr;
+  align-items: center;
+  gap: 22px;
+}
+
+.wheel-holder {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  margin: auto;
+  user-select: none;
+}
+
+.color-wheel {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -15deg,
+    #ff0000 0deg,
+    #ff8000 30deg,
+    #ffff00 60deg,
+    #80ff00 90deg,
+    #00ff00 120deg,
+    #00ff80 150deg,
+    #00ffff 180deg,
+    #0080ff 210deg,
+    #0000ff 240deg,
+    #8000ff 270deg,
+    #ff00ff 300deg,
+    #ff0080 330deg,
+    #ff0000 360deg
+  );
+  position: relative;
+  box-shadow: inset 0 0 0 4px #fff, 0 8px 20px #172b4d20;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.color-wheel:active {
+  cursor: grabbing;
+}
+
+.color-wheel:after {
+  content: "DRAG TO\A SPIN";
+  white-space: pre;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: absolute;
+  inset: 29%;
+  border-radius: 50%;
+  background: #fffaf1;
+  color: var(--navy);
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  border: 5px solid #fff;
+  pointer-events: none;
+}
+
+.wheel-pointer {
+  position: absolute;
+  z-index: 5;
+  top: -14px;
+  left: calc(50% - 12px);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 27px solid var(--navy);
+  filter: drop-shadow(0 2px 2px #172b4d33);
+  pointer-events: none;
+}
+
+.wheel-result {
+  text-align: center;
+  margin: 15px 0 4px;
+}
+
+.selected-color {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-weight: 850;
+  color: var(--navy);
+}
+
+.selected-color-swatch {
+  width: 25px;
+  height: 25px;
+  border-radius: 7px;
+  border: 1px solid #0002;
+  background: #ff0000;
+}
+
+.wheel-labels {
+  display: grid;
+  gap: 10px;
+}
+
+.scheme-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin: 8px 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  background: #fff;
+}
+
+.scheme-row.selected {
+  border: 2px solid var(--blue);
+  background: #f4f7ff;
+}
+
+.swatches {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.swatches span {
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  display: block;
+}
+
+.scheme-row strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.9rem;
+}
+
+.scheme-row small {
+  display: block;
+  color: var(--muted);
+}
+
+.scheme-preview {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.scheme-preview div {
+  height: 60px;
+  flex: 1;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+/* ========================================
+   11. COLOR MIXING LAB
+======================================== */
+.mix-stage {
+  height: 300px;
+  position: relative;
+  border: 2px dashed #d8deea;
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(#dbe1ed 1px, transparent 1px);
+  background-size: 17px 17px;
+  margin: 16px 0 10px;
+  touch-action: pan-y;
+}
+
+.mix-card {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 22px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 14px;
+  color: #fff;
+  text-shadow: 0 1px 4px #0008;
+  font-weight: 900;
+  box-shadow: 0 12px 25px #172b4d25;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  mix-blend-mode: multiply;
+  border: 2px solid #ffffff9c;
+}
+
+.mix-card:active {
+  cursor: grabbing;
+}
+
+.mix-card small {
+  background: #172b4d88;
+  border-radius: 8px;
+  padding: 4px 7px;
+}
+
+.mix-result {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #f6f7fb;
+  border-radius: 13px;
+  padding: 12px;
+}
+
+.result-chip {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #172b4d20;
+  flex-shrink: 0;
+}
+
+.mix-result strong {
+  color: var(--navy);
+}
+
+.mix-result small {
+  color: var(--muted);
+  display: block;
+}
+
+/* ========================================
+   12. NOTES AND HELPER TEXT
+======================================== */
+.note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ========================================
+   13. TYPOGRAPHY PLAYGROUND
+======================================== */
+.type-demo {
+  border-radius: 15px;
+  background: #f8f0e7;
+  padding: 22px;
+  margin: 14px 0;
+}
+
+.type-demo .sample {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  color: var(--navy);
+  overflow-wrap: anywhere;
+}
+
+.type-demo .sample-body {
+  margin-top: 12px;
+  max-width: 390px;
+  color: #596579;
+}
+
+.type-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.font-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.font-sample {
+  padding: 15px;
+  border-radius: 12px;
+  background: #f3f5fa;
+}
+
+.font-sample strong {
+  font-size: 1.5rem;
+  display: block;
+  color: var(--navy);
+}
+
+.font-sample small {
+  color: var(--muted);
+}
+
+.hierarchy-demo {
+  padding: 18px;
+  background: #fff9e9;
+  border-radius: 14px;
+}
+
+.hierarchy-demo h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.hierarchy-demo h2 {
+  font-size: 1.25rem;
+  margin: 8px 0;
+  color: var(--coral);
+}
+
+.hierarchy-demo p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ========================================
+   14. COMPOSITION CANVAS
+======================================== */
+.composition-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.palette-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.element-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.element-button span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: #f0f3fa;
+  border-radius: 9px;
+  font-size: 1.2rem;
+}
+
+.element-button:hover {
+  border-color: var(--blue);
+  background: #f7f9ff;
+}
+
+.scene-shell {
+  min-width: 0;
+}
+
+.scene-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.scene-toolbar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.scene {
+  position: relative;
+  min-height: 410px;
+  aspect-ratio: 1.55;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #dfe4ed;
+  background: linear-gradient(#bde5f4 0 54%, #e6e9b7 54% 100%);
+  isolation: isolate;
+}
+
+.scene:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 53%;
+  height: 2px;
+  background: #fff8;
+  z-index: 0;
+}
+
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scene-layer-label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: #172b4d9c;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 850;
+  padding: 5px 8px;
+  border-radius: 7px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.scene-item {
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  min-height: 35px;
+  filter: drop-shadow(0 3px 2px #172b4d15);
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+.scene-item:active {
+  cursor: grabbing;
+}
+
+.scene-item.selected {
+  border: 2px dashed var(--navy);
+  background: #ffffff33;
+}
+
+.scene-item .emoji {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+
+.scene-item .label-text {
+  font-weight: 900;
+  color: var(--navy);
+  background: #fff9;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: clamp(0.75rem, 1.4vw, 1rem);
+}
+
+.scene-item[data-kind="sun"] .emoji {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.scene-item[data-kind="mountain"] .emoji {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+}
+
+.scene-item[data-kind="tree"] .emoji {
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+}
+
+.scene-item[data-kind="person"] .emoji {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.layer-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.layer-box {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.layer-box strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+
+.layer-box small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.layer-box.active {
+  border-color: var(--blue);
+  background: #eef3ff;
+}
+
+.selected-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.selected-tools label {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.selected-tools select {
+  width: auto;
+  min-width: 145px;
+  padding: 8px;
+}
+
+/* ========================================
+   15. LESSON STEPS
+======================================== */
+.lesson-steps {
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.step {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.step:before {
+  counter-increment: step;
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--yellow);
+  color: var(--navy);
+  border-radius: 10px;
+  font-weight: 1000;
+  margin-bottom: 10px;
+}
+
+.step strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ========================================
+   16. QUIZ
+======================================== */
+.quiz {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 22px;
+  padding: 25px;
+}
+
+.quiz h3 {
+  margin: 0 0 6px;
+}
+
+.quiz p {
+  color: #d8e1f2;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.quiz-option {
+  background: #fff;
+  color: var(--navy);
+  border: 2px solid transparent;
+  text-align: left;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-weight: 800;
+}
+
+.quiz-option.correct {
+  border-color: #61d6b1;
+  background: #e6fff6;
+}
+
+.quiz-option.wrong {
+  border-color: #ff958b;
+  background: #fff0ee;
+}
+
+.feedback {
+  font-weight: 800;
+  min-height: 24px;
+}
+
+/* ========================================
+   17. FOOTER
+======================================== */
+.footer {
+  margin-top: 40px;
+  padding: 30px 5%;
+  text-align: center;
+  background: var(--navy);
+  color: white;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   18. TOAST NOTIFICATION
+======================================== */
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 40;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   19. TABLET RESPONSIVE STYLES
+======================================== */
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    min-height: 290px;
+  }
+
+  .three {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .composition-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .palette-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .element-button {
+    font-size: 0.9rem;
+  }
+
+  .wheel-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .color-wheel {
+    max-width: 230px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .navlinks {
+    order: 3;
+    width: 100%;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+
+  .navlinks a {
+    white-space: nowrap;
+  }
+
+  .progress-pill {
+    margin-left: auto;
+  }
+}
+
+/* ========================================
+   20. MOBILE RESPONSIVE STYLES
+======================================== */
+@media (max-width: 560px) {
+  .container {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+
+  .three,
+  .two,
+  .lesson-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 35px 0;
+  }
+
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .tool-card,
+  .card {
+    padding: 17px;
+  }
+
+  .palette-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .scene {
+    min-height: 320px;
+    aspect-ratio: 1.05;
+  }
+
+  .layer-list {
+    grid-template-columns: 1fr;
+  }
+
+  .type-controls,
+  .font-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .mix-stage {
+    height: 275px;
+  }
+
+  .mix-card {
+    width: 125px;
+    height: 125px;
+  }
+
+  .hero-art {
+    min-height: 260px;
+  }
+
+  .nav {
+    padding: 12px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <nav aria-label="Main navigation" class="nav">
+  <a class="brand" href="#home" style="text-decoration:none">
+   <span class="brand-mark">
+    D
+   </span>
+   <span>
+    DesignLab
+   </span>
+  </a>
+  <div class="navlinks">
+   <a class="active" href="#home">
+    Home
+   </a>
+   <a href="#color-theory">
+    Color Theory
+   </a>
+   <a href="#typography">
+    Typography
+   </a>
+   <a href="#composition">
+    Composition
+   </a>
+   <a href="#practice">
+    Practice
+   </a>
+  </div>
+  <span class="progress-pill" id="progressPill">
+   0 / 4 lessons
+  </span>
+ </nav>
+</header>
+
+<main>
+ <section class="hero" id="home">
+  <div class="container hero-grid">
+   <div>
+    <span class="eyebrow">
+     ✦ A hands-on design classroom
+    </span>
+    <h1>
+     Make ideas
+     <br/>
+     look
+     <span>
+      amazing.
+     </span>
+    </h1>
+    <p>
+     Explore the basics of graphic design through short lessons and interactive activities. Experiment with colors, style your typography, and build a scene using visual layers.
+    </p>
+    <div class="hero-actions">
+     <a class="button primary" href="#color-theory">
+      Start learning
+      <span aria-hidden="true">
+       →
+      </span>
+     </a>
+     <a class="button secondary" href="#practice">
+      Try a quick quiz
+     </a>
+    </div>
+   </div>
+   <div aria-label="Decorative graphic design poster" class="hero-art">
+    <div class="art-paper">
+    </div>
+    <div class="art-shape">
+    </div>
+    <div class="art-square">
+    </div>
+    <div class="art-star">
+     ✳
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section aria-labelledby="path-title" class="section">
+  <div class="container">
+   <div class="section-head">
+    <div>
+     <span class="kicker">
+      Your learning path
+     </span>
+     <h2 id="path-title">
+      Design, one idea at a time.
+     </h2>
+     <p>
+      Learn the building blocks, then combine them to create your own visual composition.
+     </p>
+    </div>
+   </div>
+   <div class="grid three">
+    <article class="card">
+     <div class="mini-icon">
+      🎨
+     </div>
+     <h3>
+      01 · Color Theory
+     </h3>
+     <p>
+      Understand the color wheel, harmonious color schemes, and how digital colors mix.
+     </p>
+    </article>
+    <article class="card">
+     <div class="mini-icon">
+      🔤
+     </div>
+     <h3>
+      02 · Typography
+     </h3>
+     <p>
+      Choose readable fonts and create a clear visual hierarchy with type.
+     </p>
+    </article>
+    <article class="card">
+     <div class="mini-icon">
+      🏞️
+     </div>
+     <h3>
+      03 · Composition
+     </h3>
+     <p>
+      Arrange objects and use foreground, middle ground, and background to build depth.
+     </p>
+    </article>
+   </div>
+  </div>
+ </section>
+
+ <section class="section" id="color-theory">
+  <div class="container">
+   <div class="section-head">
+    <div>
+     <span class="kicker">
+      Lesson 01
+     </span>
+     <h2>
+      Color Theory
+     </h2>
+     <p>
+      Colors communicate mood, draw attention, and help different parts of a design work together.
+     </p>
+    </div>
+    <button class="button secondary mark-done" data-lesson="color">
+     Mark lesson complete ✓
+    </button>
+   </div>
+
+   <div class="grid two">
+    <article class="tool-card">
+     <h3>
+      Explore the color wheel
+     </h3>
+     <p class="sub">
+      The wheel helps you see relationships between colors. Select a scheme to preview a palette.
+     </p>
+     <div class="wheel-wrap">
+      <div class="wheel-holder">
+       <div aria-hidden="true" class="wheel-pointer">
+       </div>
+       <div aria-label="Drag to spin the color wheel and release to select a color" class="color-wheel" id="colorWheel" role="application" tabindex="0">
+       </div>
+      </div>
+
+      <div class="wheel-labels" id="schemeChoices">
+       <button class="scheme-row selected" data-scheme="complementary">
+        <span class="swatches">
+         <span style="background:#ff595e">
+         </span>
+         <span style="background:#38a8db">
+         </span>
+        </span>
+        <span>
+         <strong>
+          Complementary
+         </strong>
+         <small>
+          Opposite colors; high contrast
+         </small>
+        </span>
+       </button>
+
+       <button class="scheme-row" data-scheme="analogous">
+        <span class="swatches">
+         <span style="background:#ff595e">
+         </span>
+         <span style="background:#ff924c">
+         </span>
+         <span style="background:#ffca3a">
+         </span>
+        </span>
+        <span>
+         <strong>
+          Analogous
+         </strong>
+         <small>
+          Neighbors; calm and cohesive
+         </small>
+        </span>
+       </button>
+
+       <button class="scheme-row" data-scheme="triadic">
+        <span class="swatches">
+         <span style="background:#ff595e">
+         </span>
+         <span style="background:#52d273">
+         </span>
+         <span style="background:#4361ee">
+         </span>
+        </span>
+        <span>
+         <strong>
+          Triadic
+         </strong>
+         <small>
+          Three spaced colors; lively
+         </small>
+        </span>
+       </button>
+
+       <button class="scheme-row" data-scheme="monochromatic">
+        <span class="swatches">
+         <span style="background:#d8e6ff">
+         </span>
+         <span style="background:#7598d9">
+         </span>
+         <span style="background:#3157a4">
+         </span>
+        </span>
+        <span>
+         <strong>
+          Monochromatic
+         </strong>
+         <small>
+          One hue in different values
+         </small>
+        </span>
+       </button>
+      </div>
+     </div>
+
+     <div class="wheel-result">
+      <div class="selected-color">
+       <span class="selected-color-swatch" id="selectedColorSwatch">
+       </span>
+       <span id="selectedColorName">
+        Selected Color: Red
+       </span>
+      </div>
+      <p class="note" id="wheelMessage">
+       Click and drag the wheel to spin it. Release to select the color under the pointer.
+      </p>
+     </div>
+
+     <div class="scheme-preview" id="schemePreview">
+      <div style="background:#ff595e">
+      </div>
+      <div style="background:#38a8db">
+      </div>
+      <div style="background:#fff0e8">
+      </div>
+     </div>
+
+     <p class="note" id="schemeDescription">
+      Complementary colors sit opposite one another on the wheel and can make a design feel bold.
+     </p>
+    </article>
+
+    <article class="tool-card">
+     <h3>
+      Color-mixing laboratory
+     </h3>
+     <p class="sub">
+      Drag the cards around the workspace. When they overlap, their colors combine into a blended preview.
+     </p>
+     <div aria-label="Drag color cards into each other to mix them" class="mix-stage" id="mixStage">
+      <div class="mix-card" data-color="#ff595e" style="left:12%;top:18%;background:#ff595e">
+       <small>
+        Coral red
+       </small>
+      </div>
+      <div class="mix-card" data-color="#38a8db" style="left:48%;top:42%;background:#38a8db">
+       <small>
+        Sky blue
+       </small>
+      </div>
+     </div>
+
+     <div class="mix-result">
+      <div class="result-chip" id="mixChip" style="background:#ff595e">
+      </div>
+      <div>
+       <strong id="mixName">
+        Move the cards together
+       </strong>
+       <small id="mixHex">
+        Overlap the cards to see a blend.
+       </small>
+      </div>
+     </div>
+
+     <div class="button-row">
+      <button class="tiny-btn" id="mixReset">
+       Reset cards
+      </button>
+      <button class="tiny-btn" id="mixAddYellow">
+       Add a yellow card
+      </button>
+     </div>
+
+     <p class="note">
+      Learning note: screens use additive RGB light. This tool shows a simple average-color preview, not a physical paint formula.
+     </p>
+    </article>
+   </div>
+
+   <div class="lesson-steps" style="margin-top:18px">
+    <div class="step">
+     <strong>
+      Hue
+     </strong>
+     <p>
+      The color family, such as red, yellow, or blue.
+     </p>
+    </div>
+    <div class="step">
+     <strong>
+      Saturation
+     </strong>
+     <p>
+      How vivid or muted a color looks.
+     </p>
+    </div>
+    <div class="step">
+     <strong>
+      Value
+     </strong>
+     <p>
+      How light or dark a color appears.
+     </p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="section" id="typography">
+  <div class="container">
+   <div class="section-head">
+    <div>
+     <span class="kicker">
+      Lesson 02
+     </span>
+     <h2>
+      Typography
+     </h2>
+     <p>
+      Typography is the art of arranging text so it is clear, readable, and visually appealing.
+     </p>
+    </div>
+    <button class="button secondary mark-done" data-lesson="type">
+     Mark lesson complete ✓
+    </button>
+   </div>
+
+   <div class="grid two">
+    <article class="tool-card">
+     <h3>
+      Try your own type style
+     </h3>
+     <p class="sub">
+      Change the headline, font style, size, and alignment to see how each choice changes the design.
+     </p>
+
+     <label class="label" for="headlineInput">
+      Headline text
+     </label>
+     <input class="input" id="headlineInput" value="Ideas into impact" maxlength="60">
+
+     <div class="type-controls">
+      <div>
+       <label class="label" for="fontSelect">
+        Typeface
+       </label>
+       <select class="input" id="fontSelect">
+        <option value="Arial, sans-serif">
+         Sans serif
+        </option>
+        <option value="Georgia, serif">
+         Serif
+        </option>
+        <option value="'Courier New', monospace">
+         Monospace
+        </option>
+        <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+         Display
+        </option>
+       </select>
+      </div>
+
+      <div>
+       <label class="label" for="sizeRange">
+        Headline size
+       </label>
+       <input class="input" type="range" id="sizeRange" min="22" max="58" value="42">
+      </div>
+
+      <div>
+       <label class="label" for="weightSelect">
+        Font weight
+       </label>
+       <select class="input" id="weightSelect">
+        <option value="400">
+         Regular
+        </option>
+        <option value="700">
+         Bold
+        </option>
+        <option value="900" selected>
+         Extra bold
+        </option>
+       </select>
+      </div>
+
+      <div>
+       <label class="label" for="alignSelect">
+        Alignment
+       </label>
+       <select class="input" id="alignSelect">
+        <option value="left">
+         Left
+        </option>
+        <option value="center">
+         Center
+        </option>
+        <option value="right">
+         Right
+        </option>
+       </select>
+      </div>
+     </div>
+
+     <div class="type-demo">
+      <div class="sample" id="typeSample">
+       Ideas into impact
+      </div>
+      <p class="sample-body" id="bodySample">
+       Good typography guides the reader. Pair a distinctive headline with a simple body font, and keep enough space around your text.
+      </p>
+     </div>
+    </article>
+
+    <article class="tool-card">
+     <h3>
+      Build a clear hierarchy
+     </h3>
+     <p class="sub">
+      Readers should quickly notice what is most important, then discover supporting information.
+     </p>
+
+     <div class="hierarchy-demo">
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.12em;color:#3157a4">
+       DESIGN WORKSHOP
+      </div>
+      <h1>
+       Make it clear.
+      </h1>
+      <h2>
+       One strong message
+      </h2>
+      <p>
+       Use size, weight, color, and spacing to guide the viewer from the main idea to the details.
+      </p>
+      <hr style="border:0;border-top:1px solid #e8dcbf;margin:17px 0">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <span style="font-size:.8rem;color:#68758a">
+        Headline → Subheading → Body
+       </span>
+       <span style="background:#f6c957;padding:5px 8px;border-radius:7px;font-size:.75rem;font-weight:900">
+        READABLE
+       </span>
+      </div>
+     </div>
+
+     <div class="font-pair" style="margin-top:12px">
+      <div class="font-sample">
+       <strong style="font-family:Arial,sans-serif">
+        Aa Bb
+       </strong>
+       <small>
+        Sans serif · clean
+       </small>
+      </div>
+      <div class="font-sample">
+       <strong style="font-family:Georgia,serif">
+        Aa Bb
+       </strong>
+       <small>
+        Serif · traditional
+       </small>
+      </div>
+     </div>
+
+     <p class="note">
+      Tip: use a small number of typefaces, maintain strong contrast, and avoid long blocks of all-capital text.
+     </p>
+    </article>
+   </div>
+  </div>
+ </section>
+
+ <section class="section" id="composition">
+  <div class="container">
+   <div class="section-head">
+    <div>
+     <span class="kicker">
+      Lesson 03
+     </span>
+     <h2>
+      Composition &amp; visual depth
+     </h2>
+     <p>
+      Composition is how you organize elements in a design. Use layers to make a scene feel like it has distance.
+     </p>
+    </div>
+    <button class="button secondary mark-done" data-lesson="composition">
+     Mark lesson complete ✓
+    </button>
+   </div>
+
+   <div class="composition-layout">
+    <aside class="tool-card">
+     <h3>
+      Add elements
+     </h3>
+     <p class="sub">
+      Choose an object, then drag it into position on the canvas.
+     </p>
+
+     <div class="palette-panel">
+      <button class="element-button" data-add="sun">
+       <span>
+        ☀️
+       </span>
+       Sun
+      </button>
+      <button class="element-button" data-add="cloud">
+       <span>
+        ☁️
+       </span>
+       Cloud
+      </button>
+      <button class="element-button" data-add="mountain">
+       <span>
+        ⛰️
+       </span>
+       Mountain
+      </button>
+      <button class="element-button" data-add="tree">
+       <span>
+        🌳
+       </span>
+       Tree
+      </button>
+      <button class="element-button" data-add="person">
+       <span>
+        🚶
+       </span>
+       Person
+      </button>
+      <button class="element-button" data-add="bird">
+       <span>
+        🐦
+       </span>
+       Bird
+      </button>
+      <button class="element-button" data-add="text">
+       <span>
+        🔤
+       </span>
+       Text label
+      </button>
+      <button class="element-button" data-add="flower">
+       <span>
+        🌼
+       </span>
+       Flower
+      </button>
+     </div>
+
+     <div class="button-row">
+      <button class="tiny-btn" id="sceneReset">
+       Reset scene
+      </button>
+      <button class="tiny-btn" id="deleteSelected">
+       Delete selected
+      </button>
+     </div>
+
+     <p class="note">
+      Select an object to move it between layers or remove it.
+     </p>
+    </aside>
+
+    <div class="tool-card scene-shell">
+     <div class="scene-toolbar">
+      <div>
+       <h3 style="margin:0">
+        Your composition canvas
+       </h3>
+       <p>
+        Drag objects to arrange the scene.
+       </p>
+      </div>
+      <button class="tiny-btn" id="sceneHint">
+       Show a tip
+      </button>
+     </div>
+
+     <div aria-label="Interactive composition canvas" class="scene" id="scene">
+      <div class="scene-layer" data-layer="background" id="backgroundLayer">
+       <span class="scene-layer-label">
+        BACKGROUND
+       </span>
+      </div>
+      <div class="scene-layer" data-layer="middle" id="middleLayer">
+       <span class="scene-layer-label">
+        MIDDLE GROUND
+       </span>
+      </div>
+      <div class="scene-layer" data-layer="foreground" id="foregroundLayer">
+       <span class="scene-layer-label">
+        FOREGROUND
+       </span>
+      </div>
+     </div>
+
+     <div class="selected-tools">
+      <label for="layerSelect">
+       Selected element layer:
+      </label>
+      <select class="input" id="layerSelect">
+       <option value="background">
+        Background
+       </option>
+       <option value="middle">
+        Middle ground
+       </option>
+       <option value="foreground">
+        Foreground
+       </option>
+      </select>
+      <button class="tiny-btn" id="bringForward">
+       Bring forward
+      </button>
+      <button class="tiny-btn" id="sendBackward">
+       Send backward
+      </button>
+     </div>
+
+     <div class="layer-list">
+      <div class="layer-box" data-layerbox="background">
+       <strong>
+        ☁ Background
+       </strong>
+       <small>
+        Far away · smaller and lighter
+       </small>
+      </div>
+      <div class="layer-box" data-layerbox="middle">
+       <strong>
+        ⛰ Middle ground
+       </strong>
+       <small>
+        Between near and far
+       </small>
+      </div>
+      <div class="layer-box" data-layerbox="foreground">
+       <strong>
+        🌿 Foreground
+       </strong>
+       <small>
+        Closest · often larger
+       </small>
+      </div>
+     </div>
+
+     <p class="note" id="sceneFeedback">
+      Try placing the sun in the background, mountains in the middle ground, and a tree in the foreground.
+     </p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="section" id="practice">
+  <div class="container">
+   <div class="section-head">
+    <div>
+     <span class="kicker">
+      Quick check
+     </span>
+     <h2>
+      Test what you learned.
+     </h2>
+     <p>
+      Choose the best answer. You can try again if you miss one.
+     </p>
+    </div>
+   </div>
+
+   <div class="grid two">
+    <div class="quiz">
+     <h3 id="quizQuestion">
+      Which color scheme uses colors opposite each other on the color wheel?
+     </h3>
+     <p id="quizCount">
+      Question 1 of 3
+     </p>
+     <div class="quiz-options" id="quizOptions">
+      <button class="quiz-option" data-answer="Analogous">
+       Analogous
+      </button>
+      <button class="quiz-option" data-answer="Complementary">
+       Complementary
+      </button>
+      <button class="quiz-option" data-answer="Monochromatic">
+       Monochromatic
+      </button>
+     </div>
+     <div aria-live="polite" class="feedback" id="quizFeedback">
+     </div>
+     <button class="button coral-btn" id="nextQuestion">
+      Next question →
+     </button>
+    </div>
+
+    <div class="card">
+     <div class="mini-icon">
+      💡
+     </div>
+     <h3>
+      Remember the design basics
+     </h3>
+     <p style="margin-bottom:12px">
+      A strong design is not just decoration. Every visual choice should help communicate the message.
+     </p>
+     <ul style="padding-left:20px;color:var(--muted);margin-bottom:0">
+      <li>
+       Use color combinations with purpose.
+      </li>
+      <li>
+       Make important text easy to notice and read.
+      </li>
+      <li>
+       Arrange elements so the viewer knows where to look.
+      </li>
+      <li>
+       Leave enough space so the design does not feel crowded.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer class="footer">
+ <div class="container footer-inner">
+  <strong>
+   DesignLab · Learn by experimenting
+  </strong>
+  <span>
+   Color · Type · Composition
+  </span>
+  <span>
+   Keep creating. Keep learning.
+  </span>
+ </div>
+</footer>
+<script>
+// ---------- Lesson progress ----------
+const completed = new Set();
+function updateProgress(){document.getElementById('progressPill').textContent=`${completed.size} / 4 lessons`;}
+document.querySelectorAll('.mark-done').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.lesson;if(completed.has(key)){completed.delete(key);btn.textContent='Mark lesson complete ✓';}else{completed.add(key);btn.textContent='Completed ✓';}updateProgress();}));
+const homeLinkObserver = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.navlinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-25% 0px -65% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>homeLinkObserver.observe(s));
+// ---------- Interactive color schemes + drag-to-spin wheel ----------
+const schemes={
+ complementary:{desc:'Complementary colors sit opposite one another on the wheel and can make a design feel bold.'},
+ analogous:{desc:'Analogous colors sit next to each other on the wheel. They often feel harmonious and easy on the eyes.'},
+ triadic:{desc:'A triadic palette uses three colors spaced around the wheel. Let one color lead and use the others as accents.'},
+ monochromatic:{desc:'A monochromatic palette uses different tints and shades of one hue for a unified look.'}
+};
+const colorWheel=document.getElementById('colorWheel');
+const selectedColorSwatch=document.getElementById('selectedColorSwatch');
+const selectedColorName=document.getElementById('selectedColorName');
+const wheelMessage=document.getElementById('wheelMessage');
+let wheelRotation=0, currentHue=0, draggingWheel=false, previousPointerAngle=0, wheelMoved=false;
+function hueColor(h,s=80,l=55){h=((h%360)+360)%360;return `hsl(${h}, ${s}%, ${l}%)`;}
+function getSchemeColors(scheme,hue){
+ if(scheme==='complementary')return [hueColor(hue),hueColor(hue+180),hueColor(hue,35,92)];
+ if(scheme==='analogous')return [hueColor(hue-30),hueColor(hue),hueColor(hue+30)];
+ if(scheme==='triadic')return [hueColor(hue),hueColor(hue+120),hueColor(hue+240)];
+ return [hueColor(hue,80,30),hueColor(hue,80,52),hueColor(hue,80,76)];
+}
+function updateSelectedScheme(){
+ const active=document.querySelector('[data-scheme].selected')||document.querySelector('[data-scheme]');
+ if(!active)return;
+ document.querySelectorAll('[data-scheme]').forEach(b=>b.classList.toggle('selected',b===active));
+ const colors=getSchemeColors(active.dataset.scheme,currentHue),preview=document.getElementById('schemePreview');
+ preview.innerHTML='';colors.forEach(c=>{const d=document.createElement('div');d.style.background=c;d.title=c;preview.appendChild(d)});
+ document.getElementById('schemeDescription').textContent=schemes[active.dataset.scheme].desc;
+}
+function updateAllSchemes(hue){
+ currentHue=((hue%360)+360)%360;
+ document.querySelectorAll('[data-scheme]').forEach(btn=>{
+  const colors=getSchemeColors(btn.dataset.scheme,currentHue), swatches=btn.querySelectorAll('.swatches span');
+  swatches.forEach((swatch,i)=>{if(colors[i]){swatch.style.background=colors[i];swatch.title=colors[i];}});
+ });
+ const names=['Red','Red-Orange','Orange','Yellow-Orange','Yellow','Yellow-Green','Green','Blue-Green','Cyan','Blue','Blue-Violet','Violet'];
+ const name=names[Math.round(currentHue/30)%12];
+ selectedColorSwatch.style.background=hueColor(currentHue);selectedColorName.textContent='Selected Color: '+name;
+ updateSelectedScheme();
+ wheelMessage.textContent=name+' selected! All four color schemes have been updated.';
+}
+function getWheelPointerAngle(e){const r=colorWheel.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;return Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI;}
+colorWheel.addEventListener('pointerdown',e=>{e.preventDefault();draggingWheel=true;wheelMoved=false;previousPointerAngle=getWheelPointerAngle(e);colorWheel.setPointerCapture(e.pointerId);});
+colorWheel.addEventListener('pointermove',e=>{
+ if(!draggingWheel)return;
+ const angle=getWheelPointerAngle(e);let diff=angle-previousPointerAngle;
+ if(diff>180)diff-=360;if(diff< -180)diff+=360;
+ if(Math.abs(diff)>.1)wheelMoved=true;
+ wheelRotation+=diff;colorWheel.style.transform=`rotate(${wheelRotation}deg)`;previousPointerAngle=angle;
+});
+function releaseWheel(e){if(!draggingWheel)return;draggingWheel=false;if(colorWheel.hasPointerCapture(e.pointerId))colorWheel.releasePointerCapture(e.pointerId);if(!wheelMoved)return;
+ // The fixed pointer sits at the top. The gradient starts at -15 degrees.
+ const finalAngle=((wheelRotation%360)+360)%360;updateAllSchemes((15-finalAngle+360)%360);
+}
+colorWheel.addEventListener('pointerup',releaseWheel);colorWheel.addEventListener('pointercancel',releaseWheel);
+colorWheel.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();wheelRotation+=(e.key==='ArrowRight'?15:-15);colorWheel.style.transform=`rotate(${wheelRotation}deg)`;const a=((wheelRotation%360)+360)%360;updateAllSchemes((15-a+360)%360);}});
+document.querySelectorAll('[data-scheme]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-scheme]').forEach(b=>b.classList.toggle('selected',b===btn));updateSelectedScheme();}));
+updateAllSchemes(0);
+// ---------- Drag-to-mix color cards ----------
+const mixStage=document.getElementById('mixStage');let draggedCard=null,dragOffset={x:0,y:0},mixCardCount=2;
+function hexToRgb(hex){const h=hex.replace('#','');return {r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)}}
+function rgbToHex({r,g,b}){return '#'+[r,g,b].map(v=>Math.round(v).toString(16).padStart(2,'0')).join('')}
+function blendColors(colors){const rgbs=colors.map(hexToRgb);return rgbToHex({r:rgbs.reduce((a,c)=>a+c.r,0)/rgbs.length,g:rgbs.reduce((a,c)=>a+c.g,0)/rgbs.length,b:rgbs.reduce((a,c)=>a+c.b,0)/rgbs.length})}
+function rectsOverlap(a,b){return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top}
+function updateMix(){const cards=[...mixStage.querySelectorAll('.mix-card')];let overlapping=[];for(let i=0;i<cards.length;i++){for(let j=i+1;j<cards.length;j++){if(rectsOverlap(cards[i].getBoundingClientRect(),cards[j].getBoundingClientRect())){overlapping.push(cards[i],cards[j]);}}}const unique=[...new Set(overlapping)];const chip=document.getElementById('mixChip');const name=document.getElementById('mixName');const hex=document.getElementById('mixHex');if(unique.length>=2){const color=blendColors(unique.map(c=>c.dataset.color));chip.style.background=color;name.textContent='Your blended color';hex.textContent=color.toUpperCase()+' · approximate digital mix';}else{chip.style.background=cards[0]?.dataset.color||'#fff';name.textContent='Move the cards together';hex.textContent='Overlap two or more cards to see a blend.'}}
+function makeMixDraggable(card){card.addEventListener('pointerdown',e=>{draggedCard=card;const r=card.getBoundingClientRect(),s=mixStage.getBoundingClientRect();dragOffset.x=e.clientX-r.left;dragOffset.y=e.clientY-r.top;card.setPointerCapture(e.pointerId);card.style.zIndex=100;});card.addEventListener('pointermove',e=>{if(draggedCard!==card)return;const s=mixStage.getBoundingClientRect();let x=e.clientX-s.left-dragOffset.x,y=e.clientY-s.top-dragOffset.y;x=Math.max(0,Math.min(s.width-card.offsetWidth,x));y=Math.max(0,Math.min(s.height-card.offsetHeight,y));card.style.left=(x/s.width*100)+'%';card.style.top=(y/s.height*100)+'%';updateMix();});const finish=()=>{if(draggedCard===card){draggedCard=null;card.style.zIndex='';updateMix();}};card.addEventListener('pointerup',finish);card.addEventListener('pointercancel',finish);}
+function setupMixCards(){mixStage.querySelectorAll('.mix-card').forEach(makeMixDraggable);updateMix()}setupMixCards();
+document.getElementById('mixReset').addEventListener('click',()=>{mixStage.innerHTML='<div class="mix-card" data-color="#ff595e" style="left:12%;top:18%;background:#ff595e"><small>Coral red</small></div><div class="mix-card" data-color="#38a8db" style="left:48%;top:42%;background:#38a8db"><small>Sky blue</small></div>';mixCardCount=2;setupMixCards();});
+document.getElementById('mixAddYellow').addEventListener('click',()=>{if(mixStage.querySelectorAll('.mix-card').length>=5){showToast('You can use up to five color cards.');return;}const c=document.createElement('div');c.className='mix-card';c.dataset.color='#ffca3a';c.style.cssText='left:35%;top:12%;background:#ffca3a';c.innerHTML='<small>Sun yellow</small>';mixStage.appendChild(c);makeMixDraggable(c);updateMix();});
+// ---------- Typography playground ----------
+const headlineInput=document.getElementById('headlineInput'),typeSample=document.getElementById('typeSample');function updateType(){typeSample.textContent=headlineInput.value||'Your headline';typeSample.style.fontFamily=document.getElementById('fontSelect').value;typeSample.style.fontSize=document.getElementById('sizeRange').value+'px';typeSample.style.fontWeight=document.getElementById('weightSelect').value;typeSample.style.textAlign=document.getElementById('alignSelect').value;}
+[headlineInput,document.getElementById('fontSelect'),document.getElementById('sizeRange'),document.getElementById('weightSelect'),document.getElementById('alignSelect')].forEach(el=>el.addEventListener('input',updateType));
+// ---------- Composition scene ----------
+const scene=document.getElementById('scene');const layerEls={background:document.getElementById('backgroundLayer'),middle:document.getElementById('middleLayer'),foreground:document.getElementById('foregroundLayer')};let selectedItem=null,itemId=0,sceneDrag=null;const layerNames={background:'Background',middle:'Middle ground',foreground:'Foreground'};
+const starterItems=[{kind:'sun',label:'Sun',emoji:'☀️',x:72,y:13,layer:'background'},{kind:'cloud',label:'Cloud',emoji:'☁️',x:28,y:17,layer:'background'},{kind:'mountain',label:'Mountain',emoji:'⛰️',x:50,y:40,layer:'middle'},{kind:'tree',label:'Tree',emoji:'🌳',x:80,y:63,layer:'foreground'},{kind:'person',label:'Person',emoji:'🚶',x:39,y:69,layer:'foreground'}];
+function selectItem(item){if(selectedItem)selectedItem.classList.remove('selected');selectedItem=item;if(selectedItem){selectedItem.classList.add('selected');document.getElementById('layerSelect').value=selectedItem.dataset.layer;}document.querySelectorAll('[data-layerbox]').forEach(b=>b.classList.toggle('active',selectedItem&&b.dataset.layerbox===selectedItem.dataset.layer));}
+function addSceneItem(data){const item=document.createElement('div');item.className='scene-item';item.dataset.kind=data.kind;item.dataset.layer=data.layer||'middle';item.dataset.id=++itemId;item.style.left=(data.x??50)+'%';item.style.top=(data.y??50)+'%';item.style.zIndex=10+itemId;const inner=document.createElement('span');if(data.kind==='text'){inner.className='label-text';inner.textContent='Your message';}else{inner.className='emoji';inner.textContent=data.emoji;}item.appendChild(inner);item.title=data.label||data.kind;layerEls[item.dataset.layer].appendChild(item);item.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;selectItem(item);sceneDrag={item,pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,left:parseFloat(item.style.left),top:parseFloat(item.style.top)};item.setPointerCapture(e.pointerId);e.stopPropagation();});item.addEventListener('pointermove',e=>{if(!sceneDrag||sceneDrag.item!==item)return;const r=scene.getBoundingClientRect();const dx=(e.clientX-sceneDrag.startX)/r.width*100,dy=(e.clientY-sceneDrag.startY)/r.height*100;item.style.left=Math.max(0,Math.min(94,sceneDrag.left+dx))+'%';item.style.top=Math.max(0,Math.min(88,sceneDrag.top+dy))+'%';});const end=()=>{if(sceneDrag?.item===item){sceneDrag=null;updateSceneFeedback();}};item.addEventListener('pointerup',end);item.addEventListener('pointercancel',end);item.addEventListener('click',()=>selectItem(item));return item;}
+function changeLayer(item,layer){if(!item)return;item.dataset.layer=layer;layerEls[layer].appendChild(item);item.style.zIndex=10+Number(item.dataset.id);document.getElementById('layerSelect').value=layer;selectItem(item);}
+function resetScene(){Object.values(layerEls).forEach(layer=>{[...layer.querySelectorAll('.scene-item')].forEach(item=>item.remove())});selectedItem=null;starterItems.forEach(addSceneItem);selectItem(null);updateSceneFeedback();}
+function updateSceneFeedback(){if(!selectedItem){document.getElementById('sceneFeedback').textContent='Try placing the sun in the background, mountains in the middle ground, and a tree in the foreground.';return;}document.getElementById('sceneFeedback').textContent=`Selected: ${selectedItem.title}. Current layer: ${layerNames[selectedItem.dataset.layer]}. Drag it to adjust its position.`;}
+scene.addEventListener('pointerdown',e=>{if(e.target===scene||e.target.classList.contains('scene-layer'))selectItem(null)});
+document.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',()=>{const kind=btn.dataset.add;const data={sun:{label:'Sun',emoji:'☀️',layer:'background'},cloud:{label:'Cloud',emoji:'☁️',layer:'background'},mountain:{label:'Mountain',emoji:'⛰️',layer:'middle'},tree:{label:'Tree',emoji:'🌳',layer:'foreground'},person:{label:'Person',emoji:'🚶',layer:'foreground'},bird:{label:'Bird',emoji:'🐦',layer:'background'},text:{label:'Text label',layer:'middle'},flower:{label:'Flower',emoji:'🌼',layer:'foreground'}}[kind];const item=addSceneItem({...data,kind,x:25+Math.random()*50,y:20+Math.random()*55});selectItem(item);updateSceneFeedback();}));
+document.getElementById('sceneReset').addEventListener('click',resetScene);document.getElementById('deleteSelected').addEventListener('click',()=>{if(!selectedItem){showToast('Select an object first.');return;}selectedItem.remove();selectedItem=null;selectItem(null);updateSceneFeedback();});document.getElementById('layerSelect').addEventListener('change',e=>{if(selectedItem)changeLayer(selectedItem,e.target.value);else showToast('Select an object to change its layer.');});
+document.querySelectorAll('[data-layerbox]').forEach(box=>box.addEventListener('click',()=>{if(selectedItem)changeLayer(selectedItem,box.dataset.layerbox);else showToast('Select an object first, then choose its layer.');}));
+document.getElementById('bringForward').addEventListener('click',()=>{if(!selectedItem){showToast('Select an object first.');return;}selectedItem.style.zIndex=Number(selectedItem.style.zIndex||10)+1;});document.getElementById('sendBackward').addEventListener('click',()=>{if(!selectedItem){showToast('Select an object first.');return;}selectedItem.style.zIndex=Math.max(1,Number(selectedItem.style.zIndex||10)-1);});document.getElementById('sceneHint').addEventListener('click',()=>showToast('Far objects go in the background; nearby objects belong in the foreground.'));
+resetScene();
+// ---------- Quick quiz ----------
+const questions=[{q:'Which color scheme uses colors opposite each other on the color wheel?',options:['Analogous','Complementary','Monochromatic'],answer:'Complementary',why:'Complementary colors are opposite on the color wheel.'},{q:'What is the main purpose of visual hierarchy in typography?',options:['To use as many fonts as possible','To make every word the same size','To guide the reader to the most important information'],answer:'To guide the reader to the most important information',why:'Hierarchy uses size, weight, contrast, and spacing to show what matters first.'},{q:'Which layer usually contains the objects closest to the viewer?',options:['Background','Middle ground','Foreground'],answer:'Foreground',why:'The foreground contains the closest elements and often appears larger.'}];let qIndex=0,answered=false;function renderQuestion(){const q=questions[qIndex];document.getElementById('quizQuestion').textContent=q.q;document.getElementById('quizCount').textContent=`Question ${qIndex+1} of ${questions.length}`;document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').textContent=qIndex===questions.length-1?'Start again ↻':'Next question →';const opts=document.getElementById('quizOptions');opts.innerHTML='';q.options.forEach(option=>{const b=document.createElement('button');b.className='quiz-option';b.textContent=option;b.dataset.answer=option;b.addEventListener('click',()=>{if(answered)return;answered=true;const correct=option===q.answer;b.classList.add(correct?'correct':'wrong');if(!correct)[...opts.children].find(x=>x.dataset.answer===q.answer)?.classList.add('correct');document.getElementById('quizFeedback').textContent=(correct?'Correct! ':'Not quite. ')+q.why;if(correct)completed.add('quiz');updateProgress();});opts.appendChild(b)});answered=false;}document.getElementById('nextQuestion').addEventListener('click',()=>{qIndex=(qIndex+1)%questions.length;renderQuestion()});renderQuestion();
+// ---------- Small toast ----------
+let toastTimer;function showToast(message){const toast=document.getElementById('toast');toast.textContent=message;toast.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.add('hidden'),2600)}
+</script>
+</body>
+</html>
